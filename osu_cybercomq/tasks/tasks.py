@@ -2,6 +2,7 @@ from celery.task import task
 from dockertask import docker_task
 from subprocess import call,STDOUT
 import requests
+import os
 
 from datetime import datetime
 from okmesonet import weather
@@ -21,6 +22,7 @@ def add(x, y):
     """
     result = x + y
     return result
+
 @task()
 def get_mesonet_data(site,start_data,end_date):
     mongo_uri ="mongodb://{0}:27017/".format(os.environ["{0}_MONGO_PORT_27017_TCP_ADDR".format(appname.upper())])
