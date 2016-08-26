@@ -24,7 +24,7 @@ def add(x, y):
     return result
 
 @task()
-def get_mesonet_data(site,start_data,end_date):
+def get_mesonet_data(site,start_date,end_date):
     mongo_uri ="mongodb://{0}:27017/".format(os.environ["{0}_MONGO_PORT_27017_TCP_ADDR".format(appname.upper())])
     db=MongoClient(mongo_uri)
     df=weather.get_mesonet_dataframe(datetime.strptime(start_date, '%Y-%m-%d'),datetime.strptime(end_date, '%Y-%m-%d'),site) 
