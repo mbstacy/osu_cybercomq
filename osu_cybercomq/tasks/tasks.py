@@ -21,7 +21,7 @@ def add(x, y):
     """
     result = x + y
     return result
-@tasks()
+@task()
 def get_mesonet_data(site,start_data,end_date):
     mongo_uri ="mongodb://{0}:27017/".format(os.environ["{0}_MONGO_PORT_27017_TCP_ADDR".format(appname.upper())])
     db=MongoClient(mongo_uri)
